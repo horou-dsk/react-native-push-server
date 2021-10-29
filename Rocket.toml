@@ -1,0 +1,11 @@
+[default]
+address = "0.0.0.0"
+temp_dir = "tmp"
+
+[default.limits]
+file = "50 MiB"
+"file/zip" = "50 MiB"
+#forms = "20 MiB"
+#json = "20 MiB"
+#bytes = "20 MiB"
+data-form = "50 MiB"

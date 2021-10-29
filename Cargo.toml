@@ -1,0 +1,22 @@
+[package]
+name = "react-native-push-server"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rocket = {version = "0.5.0-rc.1", features = ["json"]}
+serde = { version = "1", features = ["derive"]}
+serde_json = "1"
+serde_repr = "0.1"
+chrono = { version = "0.4", features = ["serde"]}
+tokio = "1"
+lazy_static = "1"
+fern = { version = "0.6", features = ["colored"]}
+log = "0.4"
+
+[profile.release]
+# 减小编译二进制文件大小
+opt-level = "z"
+lto = true
