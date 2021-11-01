@@ -9,9 +9,9 @@ async fn abc() -> (ContentType, &'static [u8]) {
     (ContentType::Bytes, "我日你个仙人".as_bytes())
 }
 
-#[get("/update/file/<file..>")]
+#[get("/update_file/<file..>")]
 async fn files(file: PathBuf) -> Result<NamedFile, NotFound<String>> {
-    let path = Path::new("static/").join(file);
+    let path = Path::new("update_file/").join(file);
     NamedFile::open(&path).await.map_err(|e| NotFound(e.to_string()))
 }
 
