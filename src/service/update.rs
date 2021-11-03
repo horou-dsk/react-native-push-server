@@ -58,7 +58,8 @@ impl<'r> UpdateProject<'r> {
 
     pub fn get_new(&self, pkg_version: &str, hot_version: u32) -> Option<&UpdatePkg> {
         let versions = self.updates.get(pkg_version)?;
-        versions.iter().find(|up| up.version > hot_version)
+        versions.last().filter(|up| up.version > hot_version )
+        // versions.iter().find(|up| up.version > hot_version)
     }
 
     pub async fn add(
